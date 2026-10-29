@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Webpage-RAG - Chat with Any Page",
+  "version": "1.0.0",
+  "description": "Ask questions about the webpage you're browsing.",
+ "permissions": [
+  "activeTab",
+  "sidePanel",
+  "tabs"
+],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Chat with this page"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}

@@ -1,0 +1,349 @@
+/* ── Reset ──────────────────────────────────────────── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Base ───────────────────────────────────────────── */
+body {
+    font-family: 'Comic Neue', cursive, sans-serif;
+    background: #fffef0;
+    color: #1a1a1a;
+    padding: 20px 18px 32px;
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fffef0; border-left: 3px solid #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #ffcc00; border: 2px solid #1a1a1a; }
+
+/* ── Halftone background ────────────────────────────── */
+.halftone-bg {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+    background-size: 8px 8px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+header {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 4px solid #1a1a1a;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #ffcc00;
+    border: 4px solid #1a1a1a;
+    box-shadow: 3px 3px 0 #1a1a1a;
+    color: #1a1a1a;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+header h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 36px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-shadow: 3px 3px 0 #ff3333, -1px -1px 0 #3366ff;
+}
+
+header p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-left: 2px;
+    opacity: 0.65;
+}
+
+/* ── Page Info (speech bubble) ──────────────────────── */
+.page-info {
+    padding: 10px 14px;
+    border: 4px solid #1a1a1a;
+    border-radius: 4px;
+    background: #fff;
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 0 #1a1a1a;
+    position: relative;
+}
+
+.page-info::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid #1a1a1a;
+}
+
+.page-info::after {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 11px solid #fff;
+}
+
+.label {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 13px;
+    font-weight: 400;
+    color: #ff3333;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+#page-url {
+    font-size: 11.5px;
+    color: #1a1a1a;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+    font-weight: 700;
+    opacity: 0.75;
+}
+
+/* ── Form Label ─────────────────────────────────────── */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Bangers', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    color: #1a1a1a;
+    letter-spacing: 0.06em;
+}
+
+/* ── Textarea ───────────────────────────────────────── */
+.textarea-wrap {
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 4px solid #1a1a1a;
+    border-radius: 4px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 13.5px;
+    font-weight: 700;
+    resize: vertical;
+    background: #fff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    box-shadow: 4px 4px 0 #1a1a1a;
+    transition: box-shadow 0.1s ease;
+    display: block;
+    outline: none;
+}
+
+textarea::placeholder {
+    color: #1a1a1a;
+    opacity: 0.35;
+    font-style: italic;
+}
+
+textarea:focus {
+    box-shadow: 6px 6px 0 #3366ff;
+    border-color: #3366ff;
+}
+
+/* ── Button ─────────────────────────────────────────── */
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px 16px;
+    border: 4px solid #1a1a1a;
+    border-radius: 4px;
+    background: #ff3333;
+    color: #fff;
+    font-family: 'Bangers', cursive;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #1a1a1a;
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+    background-size: 5px 5px;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+}
+
+button:hover {
+    background: #ffcc00;
+    color: #1a1a1a;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #1a1a1a;
+}
+
+button:hover::before {
+    opacity: 0.12;
+}
+
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0 #1a1a1a;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    transform: none;
+    box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+.btn-icon {
+    flex-shrink: 0;
+}
+
+/* ── Status ─────────────────────────────────────────── */
+#status {
+    font-family: 'Comic Neue', cursive;
+    font-size: 12px;
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 10px;
+    min-height: 18px;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+/* ── Section Divider ────────────────────────────────── */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0 14px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 4px;
+    background: #1a1a1a;
+}
+
+.divider-text {
+    font-family: 'Bangers', cursive;
+    font-size: 16px;
+    color: #1a1a1a;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    background: #ffcc00;
+    border: 3px solid #1a1a1a;
+    padding: 1px 10px;
+    box-shadow: 2px 2px 0 #1a1a1a;
+    border-radius: 2px;
+}
+
+/* ── Answer Section ─────────────────────────────────── */
+#answer-section {
+    margin-top: 4px;
+}
+
+#answer-section h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 16px;
+    font-weight: 400;
+    color: #3366ff;
+    letter-spacing: 0.1em;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+#answer {
+    padding: 13px 15px;
+    border: 4px solid #1a1a1a;
+    border-radius: 4px;
+    background: #fff;
+    font-family: 'Comic Neue', cursive;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.75;
+    color: #1a1a1a;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+/* ── Source Links ───────────────────────────────────── */
+.source-link {
+    display: block;
+    margin-top: 7px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #3366ff;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+    padding: 6px 10px;
+    border: 3px solid #1a1a1a;
+    border-radius: 3px;
+    background: #fffef0;
+    box-shadow: 3px 3px 0 #1a1a1a;
+    transition: all 0.1s ease;
+}
+
+.source-link:hover {
+    background: #ffcc00;
+    color: #1a1a1a;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #1a1a1a;
+}
+
